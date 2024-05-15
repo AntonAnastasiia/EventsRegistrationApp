@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width", initial-scale="1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <title>Event participants page</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav><ul><li><a href="/">Home page</a></li></ul></nav>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+        <h1>"<%= title %>" participants</h1>
+        <p>Search for participants by full name or e-mail</p>
+        <form action="/participants_event/<%= urlid %>" method="post" class="form-search">
+            <input type="text" class="inp" name="textsearch">
+            <div class="d-inline-block mt-15"><button class="btn blue" type="submit">Search</button></div>
+        </form>
+        <p class="text-large"><%= text %></p>
+            <div class="row participants d-mobile-block"> 
+                <% table.forEach(function(row) { %>
+                    <div class="col col-4">
+                        <div class="text-center">
+                            <%= row.full_name %>
+                        </div>
+                        <div class="text-center pt-15"><%= row.email %></div>
+                    </div>               
+                    <% }); %>
+            </div>
+        </div>
+      </main>
+</body>
+</html>

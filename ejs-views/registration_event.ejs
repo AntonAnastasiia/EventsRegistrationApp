@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width", initial-scale="1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <title>Event registration page</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav><ul><li><a href="/">Home page</a></li></ul></nav>
+        </div>
+    </header>
+    <main>
+    <div class="container">
+    <h1>"<%= title %>" registration</h1>
+    <form action="/registration_event/<%= urlid %>" method="post" class="form">
+        <div class="hint">
+            <p>Full name</p>
+            <input type="text" class="name inp" name="fullname"  required>
+        </div>
+        <div class="hint">
+            <p>Email</p>
+            <input type="email" class="gmail inp" name="gmail" required>
+        </div>
+        <div class="hint">
+            <p>Date of birth</p>
+            <input type="text" class="date inp" name="date_of_birth"  required>
+        </div>
+        <p>Where did you hear about this event?</p>
+        <input type="radio" id="social" name="hear" value="Social media" checked>
+        <label for="social">Social media</label>
+        <input type="radio" id="friends" name="hear" value="Friends">
+        <label for="friends">Friends</label>
+        <input type="radio" id="myself" name="hear" value="Found myself">
+        <label for="myself">Found myself</label>
+        
+        <div><button class="btn blue mt-15" type="submit">Submit</button></div>
+    </form>
+    </div>
+    </main>
+</body>
+</html>

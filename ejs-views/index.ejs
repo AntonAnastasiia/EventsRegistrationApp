@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width", initial-scale="1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Events Registration App</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+    <main>
+        <div class="container">
+        <h1>Events</h1>
+            <form action="/" method="post" class="form-sort">
+                <input type="radio" id="title" name="sort" value="title" <%= checked1 %>>
+                <label for="social">Title</label>
+                <input type="radio" id="event_date" name="sort" value="event date" <%= checked2 %>>
+                <label for="friends">Event date</label>
+                <input type="radio" id="myself" name="sort" value="organizer" <%= checked3 %>>
+                <label for="myself">Organizer</label>
+                <div class="d-inline-block"><button class="btn blue" type="submit">Sort</button></div>
+            </form>
+            <div class="row">
+                
+                <% table.forEach(function(row) { %>
+                    <div class="col col-3">
+                        <div class="text-center text-bold">
+                            <%= row.title %>
+                        </div>
+                        <div class="text-center ptb-15"><%= row.description %></div>
+                        <div class="ptb-15">Organizer: <%= row.organizer %></div>
+                        <div class="ptb-15">
+                            <%=  row.event_data.toLocaleString('de-AT') %>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <div><a class="btn blue" href="registration_event/<%= row.id %>">Register</a></div>
+                            <div><a class="btn orange" href="participants_event/<%= row.id %>">View</a></div>  
+                        </div>
+                    </div>    
+                               
+                    <% }); %>
+            </div>
+        </div>
+      </main>
+</body>
+</html>
